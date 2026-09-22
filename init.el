@@ -1,4 +1,3 @@
-
 ;; empty path by default
 (setq insert-default-directory nil)
 
@@ -33,3 +32,18 @@
 (set-face-attribute 'default nil :height 180)
 
 (global-display-line-numbers-mode 1)
+
+
+;; backup file
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name "backups/" user-emacs-directory))))
+
+(make-directory (expand-file-name "auto-save/" user-emacs-directory) t)
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
+
+(setq create-lockfiles nil)
+
+;; minimum warning
+
+(setq warning-minimum-level :error)
